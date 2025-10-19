@@ -1,26 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h3>Welcome to</h3>
-        <h1>Weather App</h1>
-        <input type="text" id="city" placeholder="Enter city">
-        <select id="unit">
-            <option value="metric">Celsius</option>
-            <option value="imperial">Fahrenheit</option>
-        </select>
-        <label class="dark-mode-toggle">
-           <h3> </h3>
-        </label>
-        <button onclick="getWeather()">Get Weather</button>
-        <div id="result"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Weather</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="loader.css" />
+    <link rel="stylesheet" href="toggle.css" />
+    <link
+      rel="shortcut icon"
+      href="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Status-weather-clouds-icon.png"
+      type="image/png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="theme-toggle-icon" id="theme-toggle">🌙</div>
+
+    <div class="background-wrapper">
+      <div class="background"></div>
+
+      <div class="container">
+        <h1>Get weather info</h1>
+        <div class="input-container">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Location, Ex: Delhi"
+          />
+          <button id="get-weather-btn">Search</button>
+        </div>
+
+        <!-- data -->
+        <div id="weather-info" class="hidden">
+          <span style="display: flex; justify-content: center">
+            <h2 id="city-name"></h2>
+            <h2 id="country-name"></h2>
+          </span>
+          <img id="weather-icon" alt="Weather Icon" />
+          <br />
+          <span style="display: flex; justify-content: center">
+            <h3 id="temperature"></h3>
+            <h3 id="description"></h3>
+          </span>
+
+          <div class="wrapper-card">
+            <div class="row">
+              <p id="feels-like">
+                <i class="fas fa-temperature-half"></i> <br />
+                <span class="label">Feels Like:</span>
+                <span class="value"></span>
+              </p>
+
+              <p id="humidity">
+                <i class="fas fa-tint"></i> <br />
+                <span class="label">Humidity:</span>
+                <span class="value"></span>
+              </p>
+
+              <p id="wind-speed">
+                <i class="fas fa-wind"></i> <br />
+                <span class="label">Wind Speed:</span>
+                <span class="value"></span>
+              </p>
+            </div>
+
+            <br />
+
+            <div class="row" id="sun">
+              <p id="sunrise">
+                <i class="fas fa-sun"></i> <br />
+                <span class="label">Sunrise:</span>
+                <span class="value"></span>
+              </p>
+              <p id="sunset">
+                <i class="fas fa-moon"></i> <br />
+                <span class="label">Sunset:</span>
+                <span class="value"></span>
+              </p>
+            </div>
+          </div>
+          <p id="observed-at"></p>
+        </div>
+        <p id="error-message" class="hidden">
+          City not found! Please try again.
+        </p>
+      </div>
     </div>
-    <script src="script.js"></script>
-</body>
+
+    <div class="fullscreen-loader hidden">
+      <div class="loader"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
