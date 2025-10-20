@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById(
       "observed-at"
-    ).textContent = `\u24D8 Observed at: ${datePart} at ${timePart}`;
+    ).textContent = `\u24D8 Last updated: ${datePart} at ${timePart}`;
 
     temperatureDisplay.textContent = `${main.temp}\u00B0C`;
     descriptionDisplay.textContent = `, ${weather[0].description}`;
